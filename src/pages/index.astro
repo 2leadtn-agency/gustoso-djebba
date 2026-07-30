@@ -270,9 +270,9 @@ import Layout from "../layouts/Layout.astro";
     position: absolute;
     left: 0;
     right: 0;
-    top: -10%;
+    top: -16%;
     width: 100%;
-    height: 120%;
+    height: 132%;
     object-fit: cover;
     will-change: transform;
   }
@@ -638,13 +638,12 @@ import Layout from "../layouts/Layout.astro";
   // never exceeds the buffer built into .hero-img (top:-10%, height:120%).
   const heroSection = document.querySelector(".hero");
   const heroImg = document.querySelector(".hero-img") as HTMLElement | null;
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (heroSection && heroImg && !prefersReducedMotion) {
+  if (heroSection && heroImg) {
     let ticking = false;
     const updateParallax = () => {
       const rect = heroSection.getBoundingClientRect();
-      const offset = Math.max(Math.min(rect.top * 0.25, 60), -60);
+      const offset = Math.max(Math.min(rect.top * 0.4, 110), -110);
       heroImg.style.transform = `translateY(${offset}px)`;
       ticking = false;
     };
@@ -663,7 +662,7 @@ import Layout from "../layouts/Layout.astro";
 
   // Gentle count-up for the orange showcase stats, once they scroll into view.
   const counters = document.querySelectorAll(".orange-list strong[data-count-to]");
-  if (counters.length && !prefersReducedMotion) {
+  if (counters.length) {
     const countObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
