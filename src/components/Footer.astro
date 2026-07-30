@@ -1,0 +1,113 @@
+---
+---
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/images/logo.png" alt="Gustoso Djebba" width="150" height="52" />
+      <p>Unité de séchage moderne de fruits, légumes et plantes aromatiques, née au cœur de Djebba — terre de figues.</p>
+      <a class="footer-fb" href="https://www.facebook.com/profile.php?id=100063732752644" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span>Suivez-nous sur Facebook</span>
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Navigation</h3>
+      <a href="/">Accueil</a>
+      <a href="/produits/">Produits</a>
+      <a href="/galerie/">Notre savoir-faire</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="/contact/">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <a href="tel:+21625417909">+216 25 417 909</a>
+      <a href="https://wa.me/21625417909?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <span class="footer-address">Djebba, Gouvernorat de Béja, Tunisie</span>
+    </div>
+
+    <div class="footer-col">
+      <h3>Nos produits</h3>
+      <span>Figues séchées de Djebba</span>
+      <span>Tomates séchées &amp; poudre</span>
+      <span>Olives &amp; produits d'olive</span>
+      <span>Plantes aromatiques</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} Gustoso Djebba — Tous droits réservés.</span>
+    <span class="footer-preview-note">Aperçu de site — non destiné à l'indexation</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-brown);
+    color: rgba(251, 243, 230, 0.82);
+    padding: 64px 20px 0;
+  }
+  .footer-top {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(251, 243, 230, 0.12);
+  }
+  .footer-brand img { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.92; margin-bottom: 16px; }
+  .footer-brand p {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 320px;
+    color: rgba(251, 243, 230, 0.68);
+    margin-bottom: 18px;
+  }
+  .footer-fb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-orange);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .footer-col { display: flex; flex-direction: column; gap: 12px; }
+  .footer-col h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .footer-col a, .footer-col span {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: rgba(251, 243, 230, 0.72);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-col a:hover { color: var(--color-orange); }
+  .footer-address { line-height: 1.6; }
+
+  .footer-bottom {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 22px 0 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: rgba(251, 243, 230, 0.45);
+  }
+
+  @media (min-width: 720px) {
+    .footer-top { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+  }
+</style>

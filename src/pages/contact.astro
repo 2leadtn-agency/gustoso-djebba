@@ -1,0 +1,212 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout
+  title="Contact - Gustoso Djebba"
+  description="Contactez Gustoso Djebba pour vos commandes de figues séchées, tomates séchées, olives et plantes aromatiques : téléphone, WhatsApp, formulaire et zone de livraison."
+  active="contact"
+  ogImage="/images/bandeau-entete-contact-recolte.jpg"
+>
+  <section class="page-hero">
+    <img src="/images/bandeau-entete-contact-recolte.jpg" alt="Panier de figues fraîches récoltées à Djebba" class="page-hero-img" />
+    <div class="page-hero-scrim"></div>
+    <div class="page-hero-content reveal">
+      <span class="eyebrow eyebrow--light">Contact</span>
+      <h1>Parlons de votre commande</h1>
+    </div>
+  </section>
+
+  <section class="contact-wrap">
+    <div class="contact-form reveal">
+      <h2>Écrivez-nous</h2>
+      <p class="form-note">Formulaire de démonstration — non connecté pour cet aperçu.</p>
+      <form id="contact-form">
+        <label>
+          Nom complet
+          <input type="text" name="name" placeholder="Votre nom" required />
+        </label>
+        <label>
+          Téléphone
+          <input type="tel" name="phone" placeholder="+216 ..." />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="vous@exemple.com" />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" placeholder="Votre demande, quantités souhaitées..." required></textarea>
+        </label>
+        <button type="submit" class="btn btn-orange">Envoyer le message</button>
+        <p id="form-feedback" role="status"></p>
+      </form>
+    </div>
+
+    <aside class="contact-info reveal">
+      <div class="info-card">
+        <h3>Coordonnées</h3>
+        <a class="info-line" href="tel:+21625417909">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +216 25 417 909
+        </a>
+        <a class="info-line" href="https://wa.me/21625417909?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          Discuter sur WhatsApp
+        </a>
+        <a class="info-line" href="https://www.facebook.com/profile.php?id=100063732752644" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          Notre page Facebook
+        </a>
+        <div class="info-line info-static">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Djebba, Gouvernorat de Béja, Tunisie
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>Horaires</h3>
+        <p class="tbc">Lun. – Sam. : 8h00 – 17h00<br /><span>(horaires à confirmer avec le client)</span></p>
+      </div>
+
+      <div class="info-card">
+        <h3>Zone de livraison</h3>
+        <p>Toute la Tunisie, sur commande. <span class="tbc-inline">(zones précises à confirmer)</span></p>
+      </div>
+
+      <div class="map-placeholder">
+        <div class="map-grid" aria-hidden="true"></div>
+        <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Carte Google Maps à intégrer</span>
+        <small>Djebba, Gouvernorat de Béja, Tunisie</small>
+      </div>
+    </aside>
+  </section>
+</Layout>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 12px;
+  }
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  .btn-orange { background: var(--color-orange); color: #fff; box-shadow: 0 10px 24px rgba(244,152,40,0.32); }
+  .btn-orange:hover { transform: translateY(-2px); background: var(--color-orange-dark); }
+
+  .page-hero { position: relative; height: 40vh; min-height: 280px; display: flex; align-items: flex-end; overflow: hidden; }
+  .page-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,15,8,0.2), rgba(15,11,6,0.82)); }
+  .page-hero-content { position: relative; z-index: 2; padding: 0 24px 40px; color: #fff; }
+  .page-hero-content h1 { color: #fff; font-size: clamp(1.9rem, 5.5vw, 2.8rem); }
+
+  .contact-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px 110px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-form h2 { font-size: 1.7rem; margin-bottom: 8px; }
+  .form-note { color: var(--color-brown-soft); font-size: 0.85rem; margin-bottom: 26px; }
+  #contact-form { display: flex; flex-direction: column; gap: 18px; }
+  #contact-form label {
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 0.85rem; font-weight: 700; color: var(--color-brown-soft);
+  }
+  #contact-form input, #contact-form textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 13px 16px;
+    border: 1.5px solid rgba(43,32,19,0.15);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-brown);
+    resize: vertical;
+  }
+  #contact-form input:focus, #contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-green);
+  }
+  #contact-form button { align-self: flex-start; margin-top: 6px; }
+  #form-feedback { font-size: 0.85rem; color: var(--color-green-dark); font-weight: 600; min-height: 1.2em; }
+
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .info-card {
+    background: var(--color-white);
+    border: 1px solid rgba(43,32,19,0.08);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .info-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+  .info-line {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    font-size: 0.92rem;
+    text-decoration: none;
+    color: var(--color-brown);
+  }
+  .info-line svg { width: 17px; height: 17px; color: var(--color-green); flex-shrink: 0; }
+  .info-line:hover { color: var(--color-green-dark); }
+  .info-static { color: var(--color-brown-soft); }
+  .tbc { font-size: 0.92rem; line-height: 1.7; }
+  .tbc span { color: var(--color-brown-soft); font-size: 0.8rem; font-style: italic; }
+  .tbc-inline { color: var(--color-brown-soft); font-size: 0.8rem; font-style: italic; }
+
+  .map-placeholder {
+    position: relative;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-green-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--color-green-dark);
+    border: 1px dashed rgba(3,132,50,0.35);
+  }
+  .map-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(3,132,50,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(3,132,50,0.08) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+  .map-pin { width: 30px; height: 30px; position: relative; z-index: 1; }
+  .map-placeholder span { position: relative; z-index: 1; font-weight: 700; font-size: 0.9rem; }
+  .map-placeholder small { position: relative; z-index: 1; font-size: 0.78rem; color: var(--color-brown-soft); }
+
+  @media (min-width: 860px) {
+    .contact-wrap { grid-template-columns: 1.3fr 1fr; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const feedback = document.getElementById("form-feedback");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (feedback) {
+      feedback.textContent = "Merci ! Ceci est un aperçu — le formulaire n'est pas encore connecté.";
+    }
+    form.reset();
+  });
+</script>

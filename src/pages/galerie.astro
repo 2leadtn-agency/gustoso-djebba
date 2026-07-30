@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout
+  title="Notre savoir-faire - Gustoso Djebba"
+  description="Du verger de Djebba jusqu'au conditionnement : plongez dans le savoir-faire artisanal de Gustoso Djebba, en images."
+  active="galerie"
+  ogImage="/images/bandeau-entete-galerie-sechage.jpg"
+>
+  <section class="page-hero">
+    <img src="/images/bandeau-entete-galerie-sechage.jpg" alt="Claies de séchage de figues et tomates au soleil" class="page-hero-img" />
+    <div class="page-hero-scrim"></div>
+    <div class="page-hero-content reveal">
+      <span class="eyebrow eyebrow--light">Notre savoir-faire</span>
+      <h1>De la cueillette au grain de soleil</h1>
+    </div>
+  </section>
+
+  <section class="intro">
+    <p class="reveal">
+      Chaque produit Gustoso Djebba traverse trois temps : le verger, le séchage, le conditionnement.
+      Ces photos racontent ce chemin — sans mise en scène, tel qu'il se vit chaque saison à Djebba.
+    </p>
+  </section>
+
+  <!-- ACT 1 : LE VERGER -->
+  <section class="act">
+    <div class="act-head reveal">
+      <span class="act-num">01</span>
+      <h2>Le verger</h2>
+      <p>Figuiers en terrasses, oliviers et jardins de plantes aromatiques : tout commence dans la terre de Djebba.</p>
+    </div>
+    <div class="act-grid act-grid--verger">
+      <figure class="reveal ph ph-1"><img src="/images/2.jpg" alt="Figuier dans le verger de Djebba" /></figure>
+      <figure class="reveal ph ph-2"><img src="/images/3.jpg" alt="Récolte des figues à la main" /></figure>
+    </div>
+  </section>
+
+  <!-- ACT 2 : LE SECHAGE -->
+  <section class="act act--tinted">
+    <div class="act-head reveal">
+      <span class="act-num">02</span>
+      <h2>Le séchage au soleil</h2>
+      <p>Sur claies, à l'air libre, les fruits sèchent lentement — jours après jours, sans four ni additif.</p>
+    </div>
+    <div class="act-grid act-grid--sechage">
+      <figure class="reveal ph ph-1"><img src="/images/4.jpg" alt="Claies de séchage de figues" /></figure>
+      <figure class="reveal ph ph-2"><img src="/images/5.jpg" alt="Figues en cours de séchage au soleil" /></figure>
+      <figure class="reveal ph ph-3"><img src="/images/6.jpg" alt="Tomates séchées sur claie" /></figure>
+      <figure class="reveal ph ph-4"><img src="/images/8.jpg" alt="Étape de préparation avant conditionnement" /></figure>
+    </div>
+  </section>
+
+  <!-- ACT 3 : LE CONDITIONNEMENT -->
+  <section class="act">
+    <div class="act-head reveal">
+      <span class="act-num">03</span>
+      <h2>Le conditionnement</h2>
+      <p>Triés, pesés, mis en sachet à la main : nos produits sont prêts à rejoindre votre table.</p>
+    </div>
+    <div class="act-grid act-grid--cond">
+      <figure class="reveal ph ph-1"><img src="/images/9.jpg" alt="Figues séchées conditionnées" /></figure>
+      <figure class="reveal ph ph-2"><img src="/images/10.jpg" alt="Poudre de tomate et produits conditionnés" /></figure>
+      <figure class="reveal ph ph-3"><img src="/images/11.jpg" alt="Unité de conditionnement Gustoso Djebba" /></figure>
+      <figure class="reveal ph ph-4"><img src="/images/12.jpg" alt="Assortiment de produits séchés prêts à la vente" /></figure>
+    </div>
+  </section>
+
+  <section class="gallery-cta reveal">
+    <h2>Envie de découvrir ces produits ?</h2>
+    <div class="gallery-cta-actions">
+      <a class="btn btn-green" href="/produits/">Voir nos produits</a>
+      <a class="btn btn-outline-dark" href="/contact/">Nous contacter</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-orange-dark);
+    margin-bottom: 12px;
+  }
+  .eyebrow--light { color: var(--color-orange); }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-green { background: var(--color-green); color: #fff; box-shadow: 0 10px 24px rgba(3,132,50,0.28); }
+  .btn-green:hover { transform: translateY(-2px); }
+  .btn-outline-dark { border: 1.5px solid rgba(43,32,19,0.35); color: var(--color-brown); }
+  .btn-outline-dark:hover { background: rgba(43,32,19,0.06); }
+
+  .page-hero {
+    position: relative;
+    height: 46vh;
+    min-height: 320px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,15,8,0.25), rgba(15,11,6,0.8)); }
+  .page-hero-content { position: relative; z-index: 2; padding: 0 24px 46px; color: #fff; max-width: 700px; }
+  .page-hero-content h1 { color: #fff; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; }
+
+  .intro { max-width: 720px; margin: 0 auto; padding: 80px 24px 40px; text-align: center; }
+  .intro p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.5rem); line-height: 1.6; color: var(--color-brown-soft); }
+
+  .act { max-width: 1240px; margin: 0 auto; padding: 70px 20px; }
+  .act--tinted { max-width: none; background: var(--color-cream-deep); }
+  .act--tinted .act-head, .act--tinted .act-grid { max-width: 1240px; margin-left: auto; margin-right: auto; }
+
+  .act-head { max-width: 480px; margin-bottom: 44px; }
+  .act-num { font-family: var(--font-display); font-size: 1rem; color: var(--color-orange-dark); font-weight: 600; }
+  .act-head h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); margin: 6px 0 14px; }
+  .act-head p { color: var(--color-brown-soft); line-height: 1.7; }
+
+  .ph { margin: 0; border-radius: 4px; overflow: hidden; }
+  .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .ph:hover img { transform: scale(1.03); }
+
+  .act-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .act-grid--verger .ph-1 { aspect-ratio: 3/4; }
+  .act-grid--verger .ph-2 { aspect-ratio: 16/10; }
+  .act-grid--sechage .ph { aspect-ratio: 4/3; }
+  .act-grid--cond .ph { aspect-ratio: 1/1; }
+
+  @media (min-width: 720px) {
+    .act-grid--verger { grid-template-columns: 5fr 7fr; align-items: center; }
+    .act-grid--verger .ph-2 { margin-top: 60px; }
+    .act-grid--sechage { grid-template-columns: repeat(4, 1fr); }
+    .act-grid--sechage .ph-2, .act-grid--sechage .ph-4 { margin-top: 36px; }
+    .act-grid--cond { grid-template-columns: repeat(4, 1fr); }
+    .act-grid--cond .ph-1, .act-grid--cond .ph-3 { margin-top: -20px; }
+  }
+
+  .gallery-cta {
+    text-align: center;
+    padding: 90px 24px 110px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .gallery-cta h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); margin-bottom: 30px; }
+  .gallery-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+</style>

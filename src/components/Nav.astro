@@ -1,0 +1,250 @@
+---
+export interface Props {
+  active?: string;
+}
+const { active = "" } = Astro.props;
+
+const links = [
+  { href: "/", label: "Accueil", key: "accueil" },
+  { href: "/produits/", label: "Produits", key: "produits" },
+  { href: "/galerie/", label: "Notre savoir-faire", key: "galerie" },
+  { href: "/a-propos/", label: "À propos", key: "a-propos" },
+  { href: "/contact/", label: "Contact", key: "contact" },
+];
+---
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:+21625417909" class="topbar-phone">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      +216 25 417 909
+    </a>
+    <span class="topbar-tagline">Figues séchées de Djebba &amp; produits du terroir</span>
+    <a class="topbar-fb" href="https://www.facebook.com/profile.php?id=100063732752644" target="_blank" rel="noopener noreferrer" aria-label="Facebook Gustoso Djebba">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+  </div>
+</div>
+
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo.png" alt="Gustoso Djebba" width="150" height="52" />
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      {links.map((l) => (
+        <a href={l.href} class={active === l.key ? "active" : ""}>{l.label}</a>
+      ))}
+    </nav>
+
+    <a
+      class="nav-cta"
+      href="https://wa.me/21625417909?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Commander
+    </a>
+
+    <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="nav-mobile">
+    {links.map((l) => (
+      <a href={l.href} class={active === l.key ? "active" : ""}>{l.label}</a>
+    ))}
+    <a
+      class="nav-mobile-cta"
+      href="https://wa.me/21625417909?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Nous écrire sur WhatsApp
+    </a>
+  </div>
+</header>
+
+<style>
+  .topbar {
+    background: var(--color-green-dark);
+    color: #fff;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+  .topbar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .topbar-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0.95;
+  }
+  .topbar-tagline {
+    flex: 1;
+    text-align: center;
+    opacity: 0.85;
+    display: none;
+  }
+  .topbar-fb {
+    color: #fff;
+    display: inline-flex;
+    opacity: 0.9;
+    margin-left: auto;
+  }
+  @media (min-width: 640px) {
+    .topbar-tagline { display: block; }
+    .topbar-fb { margin-left: 0; }
+  }
+
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(251, 243, 230, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(43, 32, 19, 0.08);
+  }
+  .nav-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .nav-logo img { height: 42px; width: auto; display: block; }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 26px;
+    margin-left: 8px;
+  }
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--color-brown);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0;
+    background: var(--color-orange);
+    transition: width 0.35s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--color-green-dark); }
+  .nav-links a:hover::after,
+  .nav-links a.active::after { width: 100%; }
+
+  .nav-cta {
+    display: none;
+    margin-left: auto;
+    background: var(--color-orange);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(244, 152, 40, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(244, 152, 40, 0.42); }
+
+  .nav-burger {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-burger span {
+    width: 22px;
+    height: 2px;
+    background: var(--color-brown);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--color-cream);
+    transition: max-height 0.4s ease;
+  }
+  .nav-mobile.open { max-height: 500px; }
+  .nav-mobile a {
+    padding: 16px 24px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--color-brown);
+    text-decoration: none;
+    border-top: 1px solid rgba(43,32,19,0.08);
+  }
+  .nav-mobile a.active { color: var(--color-green-dark); }
+  .nav-mobile-cta {
+    margin: 14px 24px 20px;
+    background: var(--color-green);
+    color: #fff !important;
+    text-align: center;
+    border-radius: 100px;
+    padding: 13px 20px !important;
+    font-family: var(--font-body) !important;
+    font-weight: 700;
+    font-size: 0.95rem !important;
+    border-top: none !important;
+  }
+
+  @media (min-width: 960px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-block; }
+    .nav-burger { display: none; }
+    .nav-mobile { display: none !important; }
+  }
+</style>
+
+<script>
+  const burger = document.getElementById("nav-burger");
+  const mobile = document.getElementById("nav-mobile");
+  burger?.addEventListener("click", () => {
+    const expanded = burger.getAttribute("aria-expanded") === "true";
+    burger.setAttribute("aria-expanded", String(!expanded));
+    mobile?.classList.toggle("open");
+  });
+</script>
