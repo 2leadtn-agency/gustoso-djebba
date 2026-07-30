@@ -73,11 +73,17 @@ import Layout from "../layouts/Layout.astro";
         <p>Toute la Tunisie, sur commande. <span class="tbc-inline">(zones précises à confirmer)</span></p>
       </div>
 
-      <div class="map-placeholder">
-        <div class="map-grid" aria-hidden="true"></div>
-        <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>Carte Google Maps à intégrer</span>
-        <small>Djebba, Gouvernorat de Béja, Tunisie</small>
+      <div class="map-embed reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23492.744556457576!2d9.076981414624354!3d36.47898539458974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fb647c2ffc9f0f%3A0xb0da4585abd9311d!2sDjebba!5e1!3m2!1sen!2stn!4v1785422214366!5m2!1sen!2stn"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Localisation Gustoso Djebba"
+        ></iframe>
       </div>
     </aside>
   </section>
@@ -170,29 +176,15 @@ import Layout from "../layouts/Layout.astro";
   .tbc span { color: var(--color-brown-soft); font-size: 0.8rem; font-style: italic; }
   .tbc-inline { color: var(--color-brown-soft); font-size: 0.8rem; font-style: italic; }
 
-  .map-placeholder {
+  .map-embed {
     position: relative;
-    height: 220px;
+    height: 260px;
     border-radius: 12px;
     overflow: hidden;
-    background: var(--color-green-soft);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: var(--color-green-dark);
-    border: 1px dashed rgba(3,132,50,0.35);
+    border: 1px solid rgba(3,132,50,0.18);
+    box-shadow: 0 10px 28px rgba(43,32,19,0.1);
   }
-  .map-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(3,132,50,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(3,132,50,0.08) 1px, transparent 1px);
-    background-size: 26px 26px;
-  }
-  .map-pin { width: 30px; height: 30px; position: relative; z-index: 1; }
-  .map-placeholder span { position: relative; z-index: 1; font-weight: 700; font-size: 0.9rem; }
-  .map-placeholder small { position: relative; z-index: 1; font-size: 0.78rem; color: var(--color-brown-soft); }
+  .map-embed iframe { display: block; filter: saturate(0.9) sepia(0.06); }
 
   @media (min-width: 860px) {
     .contact-wrap { grid-template-columns: 1.3fr 1fr; }
