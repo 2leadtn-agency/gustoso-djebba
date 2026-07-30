@@ -11,16 +11,18 @@ import Layout from "../layouts/Layout.astro";
   <section class="hero">
     <img src="/images/hero-figues-sechees-lumiere-doree.jpg" alt="Figues et produits séchés de Djebba, baignés de lumière dorée" class="hero-img" />
     <div class="hero-scrim"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow reveal">Djebba · Gouvernorat de Béja</span>
-      <h1 class="hero-title reveal">Le soleil,<br />le temps,<br /><em>et rien d'autre.</em></h1>
-      <p class="hero-sub reveal">
-        Gustoso Djebba sèche les figues, tomates, olives et plantes aromatiques du terroir
-        avec la patience d'un savoir-faire artisanal — de l'arbre jusqu'à votre table.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="/produits/" class="btn btn-orange">Découvrir nos produits</a>
-        <a href="/contact/" class="btn btn-outline">Nous contacter</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-eyebrow reveal">Djebba · Gouvernorat de Béja</span>
+        <h1 class="hero-title reveal">Le soleil,<br />le temps,<br /><em>et rien d'autre.</em></h1>
+        <p class="hero-sub reveal">
+          Gustoso Djebba sèche les figues, tomates, olives et plantes aromatiques du terroir
+          avec la patience d'un savoir-faire artisanal — de l'arbre jusqu'à votre table.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="/produits/" class="btn btn-orange">Découvrir nos produits</a>
+          <a href="/contact/" class="btn btn-outline">Nous contacter</a>
+        </div>
       </div>
     </div>
     <div class="hero-scroll" aria-hidden="true">
@@ -68,6 +70,12 @@ import Layout from "../layouts/Layout.astro";
         <img src="/images/3.jpg" alt="Claies de séchage au soleil à l'unité Gustoso Djebba" />
         <figcaption>03 — Le séchage naturel</figcaption>
       </figure>
+
+      <div class="journey-stat reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <strong>Aucune cuisson</strong>
+        <p>Rien n'est pressé. Le soleil dicte le rythme, jour après jour, jusqu'à la texture parfaite.</p>
+      </div>
     </div>
   </section>
 
@@ -150,9 +158,18 @@ import Layout from "../layouts/Layout.astro";
         pour préserver fibres, saveurs et bienfaits nutritionnels.
       </p>
       <ul class="orange-list">
-        <li><strong>+3x</strong><span>concentration naturelle de sucres et arômes</span></li>
-        <li><strong>0</strong><span>conservateur ni additif ajouté</span></li>
-        <li><strong>12 mois</strong><span>de conservation dans de bonnes conditions</span></li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h7l-1 8 11-14h-7z"/></svg>
+          <strong>+3x</strong><span>concentration naturelle de sucres et arômes</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 14l3-3 3 3 5-6"/></svg>
+          <strong>0</strong><span>conservateur ni additif ajouté</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>
+          <strong>12 mois</strong><span>de conservation dans de bonnes conditions</span>
+        </li>
       </ul>
     </div>
     <div class="orange-visual reveal">
@@ -238,10 +255,15 @@ import Layout from "../layouts/Layout.astro";
     inset: 0;
     background: linear-gradient(180deg, rgba(20,15,8,0.15) 0%, rgba(20,15,8,0.35) 55%, rgba(15,11,6,0.85) 100%);
   }
-  .hero-content {
+  .hero-inner {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
     padding: 0 24px 90px;
+  }
+  .hero-content {
     max-width: 640px;
     color: #fff;
   }
@@ -258,6 +280,8 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.03;
     margin: 16px 0 20px;
     font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.25);
   }
   .hero-title em { font-style: italic; color: var(--color-orange); font-weight: 500; }
   .hero-sub {
@@ -271,7 +295,7 @@ import Layout from "../layouts/Layout.astro";
   .hero-scroll {
     position: absolute;
     right: 28px;
-    bottom: 28px;
+    bottom: 190px;
     z-index: 2;
     display: none;
     flex-direction: column;
@@ -355,6 +379,27 @@ import Layout from "../layouts/Layout.astro";
     .journey-photo--b { grid-column: 5 / 12; grid-row: 2; }
     .journey-text--b { grid-column: 9 / 13; grid-row: 1; align-self: end; padding-bottom: 20px; }
     .journey-photo--c { grid-column: 1 / 8; grid-row: 3; margin-top: 30px; }
+    .journey-stat { grid-column: 9 / 13; grid-row: 3; align-self: center; }
+  }
+
+  .journey-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 4px;
+  }
+  .journey-stat svg { width: 26px; height: 26px; color: var(--color-orange-dark); }
+  .journey-stat strong {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-green-dark);
+    font-weight: 600;
+  }
+  .journey-stat p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-brown-soft);
   }
 
   /* TEXTURE BAND */
@@ -430,8 +475,9 @@ import Layout from "../layouts/Layout.astro";
   }
   .orange-copy h2 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin-bottom: 20px; }
   .orange-copy p { line-height: 1.75; font-size: 1.02rem; color: rgba(255,255,255,0.92); margin-bottom: 36px; }
-  .orange-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
-  .orange-list li { display: flex; align-items: baseline; gap: 16px; }
+  .orange-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
+  .orange-list li { display: flex; align-items: center; gap: 16px; }
+  .orange-list svg { width: 26px; height: 26px; flex-shrink: 0; color: #fff; }
   .orange-list strong { font-family: var(--font-display); font-size: 1.7rem; color: var(--color-brown); min-width: 90px; }
   .orange-list span { font-size: 0.92rem; color: rgba(255,255,255,0.92); }
   .orange-visual { min-height: 320px; }

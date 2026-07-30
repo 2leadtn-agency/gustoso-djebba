@@ -38,6 +38,45 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gd-chat-bubble:hover { transform: scale(1.07); box-shadow: 0 10px 26px rgba(3, 132, 50, 0.5); }
+    @keyframes gd-bubble-pulse {
+      0%, 100% { box-shadow: 0 8px 22px rgba(3, 132, 50, 0.4), 0 0 0 0 rgba(3, 132, 50, 0.35); }
+      50% { box-shadow: 0 8px 22px rgba(3, 132, 50, 0.4), 0 0 0 8px rgba(3, 132, 50, 0); }
+    }
+    .gd-chat-bubble.gd-idle { animation: gd-bubble-pulse 2.8s ease-in-out infinite; }
+    .gd-chat-prompt {
+      position: fixed;
+      right: 86px;
+      bottom: 104px;
+      z-index: 940;
+      background: #fffdf9;
+      color: #2b2013;
+      font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 100px;
+      box-shadow: 0 8px 22px rgba(43, 32, 19, 0.18);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .gd-chat-prompt.gd-shown { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .gd-chat-prompt::after {
+      content: "";
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      background: #fffdf9;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    @media (max-width: 420px) {
+      .gd-chat-prompt { right: 78px; bottom: 96px; font-size: 0.8rem; padding: 8px 14px; }
+    }
     .gd-chat-bubble svg { width: 30px; height: 30px; }
     .gd-chat-panel {
       position: fixed;
@@ -192,9 +231,14 @@
 
   function buildDOM() {
     var bubble = document.createElement("button");
-    bubble.className = "gd-chat-bubble";
+    bubble.className = "gd-chat-bubble gd-idle";
     bubble.setAttribute("aria-label", "Ouvrir le chat " + BUSINESS_NAME);
     bubble.innerHTML = BUBBLE_SVG;
+
+    var prompt = document.createElement("button");
+    prompt.className = "gd-chat-prompt";
+    prompt.type = "button";
+    prompt.textContent = "Une question ?";
 
     var panel = document.createElement("div");
     panel.className = "gd-chat-panel";
@@ -213,7 +257,8 @@
 
     document.body.appendChild(panel);
     document.body.appendChild(bubble);
-    return { bubble: bubble, panel: panel };
+    document.body.appendChild(prompt);
+    return { bubble: bubble, panel: panel, prompt: prompt };
   }
 
   function addMessage(container, text, who) {
@@ -269,11 +314,17 @@
     var hasOpenedOnce = false;
     var isSending = false;
 
+    function dismissPrompt() {
+      dom.prompt.classList.remove("gd-shown");
+      dom.bubble.classList.remove("gd-idle");
+    }
+
     function openPanel() {
       dom.panel.classList.add("gd-open");
       requestAnimationFrame(function () {
         dom.panel.classList.add("gd-visible");
       });
+      dismissPrompt();
       if (!hasOpenedOnce) {
         hasOpenedOnce = true;
         addMessage(messages, WELCOME_MESSAGE, "bot");
@@ -296,7 +347,12 @@
         openPanel();
       }
     });
+    dom.prompt.addEventListener("click", openPanel);
     closeBtn.addEventListener("click", closePanel);
+
+    setTimeout(function () {
+      if (!hasOpenedOnce) dom.prompt.classList.add("gd-shown");
+    }, 1600);
 
     textarea.addEventListener("input", function () {
       textarea.style.height = "auto";
