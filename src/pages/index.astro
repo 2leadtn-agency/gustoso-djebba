@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
 >
   <!-- HERO -->
   <section class="hero">
-    <img src="/images/hero-figues-sechees-lumiere-doree.jpg" alt="Figues et produits séchés de Djebba, baignés de lumière dorée" class="hero-img" />
+    <img src="/images/hero-figues-sechees-lumiere-doree.jpg" alt="Figues et produits séchés de Djebba, baignés de lumière dorée" class="hero-img" loading="eager" fetchpriority="high" decoding="async" />
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <div class="hero-content">
@@ -51,7 +51,7 @@ import Layout from "../layouts/Layout.astro";
 
     <div class="journey-grid">
       <figure class="journey-photo journey-photo--a reveal">
-        <img src="/images/1.jpg" alt="Figuier du verger de Djebba" />
+        <img src="/images/1.jpg" alt="Figuier du verger de Djebba" loading="lazy" decoding="async" />
         <figcaption>01 — Le verger</figcaption>
       </figure>
 
@@ -60,7 +60,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <figure class="journey-photo journey-photo--b reveal">
-        <img src="/images/2.jpg" alt="Récolte des figues à Djebba" />
+        <img src="/images/2.jpg" alt="Récolte des figues à Djebba" loading="lazy" decoding="async" />
         <figcaption>02 — La récolte</figcaption>
       </figure>
 
@@ -69,7 +69,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <figure class="journey-photo journey-photo--c reveal">
-        <img src="/images/3.jpg" alt="Claies de séchage au soleil à l'unité Gustoso Djebba" />
+        <img src="/images/3.jpg" alt="Claies de séchage au soleil à l'unité Gustoso Djebba" loading="lazy" decoding="async" />
         <figcaption>03 — Le séchage naturel</figcaption>
       </figure>
 
@@ -83,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- ORANGE-BLEED TEXTURE DIVIDER -->
   <section class="texture-band">
-    <img src="/images/bandeau-produits-sechees-vue-dessus.jpg" alt="Figues, tomates et olives séchées vues de dessus" class="texture-img" />
+    <img src="/images/bandeau-produits-sechees-vue-dessus.jpg" alt="Figues, tomates et olives séchées vues de dessus" class="texture-img" loading="lazy" decoding="async" />
     <div class="texture-scrim"></div>
     <div class="texture-content">
       <div class="benefit reveal">
@@ -121,7 +121,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div class="product-row reveal" style="--accent:#038432;--accent-bg:#e4efe2">
-      <div class="product-photo"><img src="/images/8.jpg" alt="Figues séchées de Djebba conditionnées" /></div>
+      <div class="product-photo"><img src="/images/8.jpg" alt="Figues séchées de Djebba conditionnées" loading="lazy" decoding="async" /></div>
       <div class="product-copy">
         <span class="product-tag">Figues</span>
         <h3>Figues séchées de Djebba</h3>
@@ -131,7 +131,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div class="product-row product-row--rev reveal" style="--accent:#c1592a;--accent-bg:#fbe4d8">
-      <div class="product-photo"><img src="/images/5.jpg" alt="Tomates séchées et poudre de tomate" /></div>
+      <div class="product-photo"><img src="/images/5.jpg" alt="Tomates séchées et poudre de tomate" loading="lazy" decoding="async" /></div>
       <div class="product-copy">
         <span class="product-tag">Tomates</span>
         <h3>Tomates séchées &amp; poudre</h3>
@@ -141,7 +141,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div class="product-row reveal" style="--accent:#5c6b2f;--accent-bg:#eef1e2">
-      <div class="product-photo"><img src="/images/6.jpg" alt="Olives et produits d'olive de Djebba" /></div>
+      <div class="product-photo"><img src="/images/6.jpg" alt="Olives et produits d'olive de Djebba" loading="lazy" decoding="async" /></div>
       <div class="product-copy">
         <span class="product-tag">Olives</span>
         <h3>Olives &amp; produits d'olive</h3>
@@ -151,7 +151,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div class="product-row product-row--rev reveal" style="--accent:#1f7a52;--accent-bg:#e4f2ea">
-      <div class="product-photo"><img src="/images/11.jpg" alt="Plantes aromatiques séchées" /></div>
+      <div class="product-photo"><img src="/images/11.jpg" alt="Plantes aromatiques séchées" loading="lazy" decoding="async" /></div>
       <div class="product-copy">
         <span class="product-tag">Plantes aromatiques</span>
         <h3>Plantes aromatiques</h3>
@@ -196,7 +196,7 @@ import Layout from "../layouts/Layout.astro";
       </ul>
     </div>
     <div class="orange-visual reveal">
-      <img src="/images/gros-plan-tomates-sechees-panier-osier.jpg" alt="Gros plan de tomates séchées dans un panier en osier" />
+      <img src="/images/gros-plan-tomates-sechees-panier-osier.jpg" alt="Gros plan de tomates séchées dans un panier en osier" loading="lazy" decoding="async" />
     </div>
   </section>
 
